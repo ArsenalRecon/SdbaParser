@@ -1,13 +1,15 @@
 param([string]$hex, [string]$filepath)
 
+$filepath = [WildcardPattern]::Escape($filepath)
+
 If([string]::IsNullOrEmpty($filepath)){
 	Write-Host "Error: No filepath supplied"
 	Exit
 }
 
-If(!(Test-Path $filepath)){
-	Write-Host "Error: File not found"
-	Exit
+If(!(Test-Path "$filepath")){
+	Write-Host "Error: File not found: $filepath"
+	#Exit
 }
 
 If([string]::IsNullOrEmpty($hex)){
@@ -16,7 +18,7 @@ If([string]::IsNullOrEmpty($hex)){
 }
 
 $fileInfo = New-Object System.IO.FileInfo $filepath
-$Stream = New-Object System.IO.FileStream -ArgumentList $filepath, 'Open', 'Read'
+$Stream = New-Object System.IO.FileStream -ArgumentList ((Convert-Path -Path $filepath), 'Open', 'Read')
 
 $Encoding = [Text.Encoding]::GetEncoding(28591)
 

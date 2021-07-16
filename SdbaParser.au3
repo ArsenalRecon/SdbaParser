@@ -4,8 +4,8 @@
 #AutoIt3Wrapper_Outfile_x64=SdbaParser64.exe
 #AutoIt3Wrapper_Compile_Both=y
 #AutoIt3Wrapper_Change2CUI=y
-#AutoIt3Wrapper_Res_Fileversion=1.0.0.0
-#AutoIt3Wrapper_Res_ProductVersion=1.0.0.0
+#AutoIt3Wrapper_Res_Fileversion=1.0.0.1
+#AutoIt3Wrapper_Res_ProductVersion=1.0.0.1
 #AutoIt3Wrapper_Res_Comment=Sdba pool tag parser
 #AutoIt3Wrapper_Res_Description=Sdba pool tag parser
 #AutoIt3Wrapper_AU3Check_Parameters=-w 3 -w 5
@@ -31,7 +31,7 @@ Global $arr_hits[0][0]
 
 Global $blocksize, $charmove, $tagSdba
 
-Global $DateTimeFormat = 6
+Global $DateTimeFormat = 6 ; 1=YYYYMMDDHHMM, 2=MM/DD/YYYY HH:MM, 3=DD/MM/YYYY HH:MM, 4=Month DD, YYYY HH:MM, 5=DD Month YYYY HH:MM, 6=YYYY-MM-DD-HH:MM
 Global $TimestampPrecision = 3 ; 3=nansec, 2=millisec, 1=sec
 Global $PrecisionSeparator = ".", $PrecisionSeparator2 = ""
 Global $_COMMON_KERNEL32DLL=DllOpen("kernel32.dll")
